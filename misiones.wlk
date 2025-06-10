@@ -12,18 +12,21 @@ class BusquedaDeTesoro inherits Misiones{
 }
 
 class ConvertirseEnLeyenda inherits Misiones {
-    var itemObligatorio
-    // method cumpleLosRequisitos(unPirata) = 
-    method tieneLosItemsNesesario(unPirata) = unPirata.items().size() >= 10 and unPirata.items().contains(itemObligatorio)
-
+    const itemObligatorio
+    method cumpleLosRequisitos(unPirata) = unPirata.items().size() >= 10 and unPirata.items().contains(itemObligatorio)
 }
 
 class Saqueo {
-    method tieneLosItemsNesesario(unPirata) = unPirata.cantidadDeMonedas() < monedasPromedios.promedioDeMonedas()
-
+    method cumpleLosRequisitos(unPirata) = unPirata.cantidadDeMonedas() < monedasPromedios.valor()
     
 }
-
 object monedasPromedios {
-    var property promedioDeMonedas = 100
+    var property valor = 100
 }
+
+class ciudad {
+    var poblacion
+    method poblacion() = poblacion
+    method esVulnerable(unBarco) = poblacion
+}
+
